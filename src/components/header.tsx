@@ -1,18 +1,16 @@
-import { useSession } from 'next-auth/react';
+'use client';
+
 import Link from 'next/link';
-import { FiLoader, FiLock, FiLogOut, FiUser } from 'react-icons/fi';
-import { signIn, signOut } from '../../auth';
+import { FiLoader, FiLogOut, FiUser } from 'react-icons/fi';
+import { GoogleLoginForm } from './google-login-form';
+import { signOut, useSession } from 'next-auth/react';
 
 export function Header() {
 	const { status } = useSession();
 
-	async function handleLogin() {
-		await signIn();
-	}
-
-	async function handleLogout() {
+	const handleLogout = async () => {
 		await signOut();
-	}
+	};
 
 	return (
 		<header className="flex h-20 w-full items-center bg-white px-2 py-4 shadow-sm">
@@ -29,11 +27,7 @@ export function Header() {
 					</button>
 				)}
 
-				{status === 'unauthenticated' && (
-					<button onClick={handleLogin}>
-						<FiLock size={26} color="#4b5563" />
-					</button>
-				)}
+				{status === 'unauthenticated' && <GoogleLoginForm />}
 
 				{status === 'authenticated' && (
 					<div className="flex items-baseline gap-4">
