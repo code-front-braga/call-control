@@ -1,14 +1,19 @@
+import Image from 'next/image';
+
 export default function Home() {
 	return (
-		<div>
-			<h1>Hello, Next.js!</h1>
-			<p>Welcome to the Call Control App.</p>
-			<p>This is a placeholder page.</p>
-			<p>Please replace this content with your own.</p>
-			<p>This app is built using Next.js and Ant Design.</p>
-			<p>
-				Visit <a href="https://nextjs.org/">nextjs.org</a> for more information.
-			</p>
-		</div>
+		<main className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center">
+			<h2 className="mb-2 text-2xl font-medium">Gerencie sua empresa</h2>
+			<h1 className="mb-8 text-3xl font-bold text-blue-600 md:text-4xl">
+				Atendimentos, clientes
+			</h1>
+			<Image
+				src="/bg-home.svg"
+				alt="Imagem gero do dev control"
+				width={600}
+				height={600}
+				className="max-w-sm md:max-w-xl"
+			/>
+		</main>
 	);
 }
