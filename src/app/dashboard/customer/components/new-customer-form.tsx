@@ -39,8 +39,8 @@ export function NewCustomerForm({ userId }: { userId: string }) {
 
 			router.refresh();
 			router.replace('/dashboard/customer');
-		} catch (error: AxiosError | any) {
-			if (error.response?.status === 409) {
+		} catch (error: unknown) {
+			if (error instanceof AxiosError && error.response?.status === 409) {
 				alert('Já existe um cliente cadastrado com esse e-mail.');
 			} else {
 				alert('Falha ao cadastrar cliente. Tente novamente.'); // Trate outros erros aqui
