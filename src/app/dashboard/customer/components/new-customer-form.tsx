@@ -6,6 +6,7 @@ import { CustomerFormData, customerFormSchema } from '@/lib/zod/customer';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { instance } from '@/lib/axios/api';
+import { AxiosError } from 'axios';
 
 export function NewCustomerForm({ userId }: { userId: string }) {
 	const {
@@ -29,18 +30,21 @@ export function NewCustomerForm({ userId }: { userId: string }) {
 				address: data.address,
 			});
 
+			console.log('Resposta da API:', res);
+			console.log('Status da Resposta:', res.status);
+
 			if (res.status === 201) {
 				alert('Cliente cadastrado com sucesso!');
-				return;
-			} else if (res.status === 409) {
-				alert('Já existe um cliente cadastrado com esse e-mail.');
-				return;
 			}
 
 			router.refresh();
 			router.replace('/dashboard/customer');
-		} catch (error) {
-			alert(error);
+		} catch (error: AxiosError | any) {
+			if (error.response?.status === 409) {
+				alert('Já existe um cliente cadastrado com esse e-mail.');
+			} else {
+				alert('Falha ao cadastrar cliente. Tente novamente.'); // Trate outros erros aqui
+			}
 		} finally {
 			reset();
 		}

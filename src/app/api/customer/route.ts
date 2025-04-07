@@ -123,6 +123,7 @@ export async function DELETE(request: Request) {
 			{ status: 200 },
 		);
 	} catch (error) {
+		console.error('Erro ao deletar cliente:', error);
 		return NextResponse.json(
 			{ success: false, error: `Falha ao deletar cliente: ${error}` },
 			{ status: 500 },
