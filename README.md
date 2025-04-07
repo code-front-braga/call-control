@@ -8,7 +8,7 @@ Bem-vindo ao **Dev Control**, uma plataforma de controle de chamados de clientes
 
 ## 🖥️ Demonstração
 
-🔗 [Dev Control](https://currency-swift-chi.vercel.app)
+🔗 [Dev Control](https://dev-control-phi.vercel.app)
 
 ## 📋 Funcionalidades
 
