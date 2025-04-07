@@ -1,10 +1,11 @@
+import { Container } from '@/components/container';
+
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { auth } from '../../../../../auth';
-import { Container } from '@/components/container';
-import Link from 'next/link';
 import { NewCustomerForm } from '../components/new-customer-form';
 
-export default async function NewCustomerPage() {
+export default async function NewCustomer() {
 	const session = await auth();
 
 	if (!session || !session.user) {

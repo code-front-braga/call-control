@@ -21,4 +21,18 @@ const customerFormSchema = z.object({
 
 type CustomerFormData = z.infer<typeof customerFormSchema>;
 
-export { customerFormSchema, type CustomerFormData };
+const customerEmailSchema = z.object({
+	email: z
+		.string()
+		.email({ message: 'Digite o email do cliente para localizar' })
+		.min(1, { message: 'O campo email é obrigatório' }),
+});
+
+type CustomerEmailData = z.infer<typeof customerEmailSchema>;
+
+export {
+	customerFormSchema,
+	type CustomerFormData,
+	customerEmailSchema,
+	type CustomerEmailData,
+};

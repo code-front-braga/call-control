@@ -70,3 +70,62 @@ export async function POST(request: Request) {
 		);
 	}
 }
+
+export async function DELETE(request: Request) {
+	const session = await auth();
+
+	if (!session || !session.user) {
+		return NextResponse.json(
+			{ success: false, error: 'Você não está logado.' },
+			{ status: 401 },
+		);
+	}
+
+	const { searchParams } = new URL(request.url);
+	const userId = searchParams.get('id');
+
+	if (!userId) {
+		return NextResponse.json(
+			{ success: false, error: 'ID do cliente não fornecido.' },
+			{ status: 400 },
+		);
+	}
+
+	try {
+		const findTickets = await db.ticket.findFirst({
+			where: { customerId: userId },
+		});
+
+		if (findTickets) {
+			return NextResponse.json(
+				{
+					success: false,
+					error:
+						'Não é possível excluir o cliente, pois existem tickets associados.',
+				},
+				{ status: 400 },
+			);
+		}
+
+		const deletedCustomer = await db.customer.delete({
+			where: { id: userId },
+		});
+
+		if (!deletedCustomer) {
+			return NextResponse.json(
+				{ success: false, error: 'Cliente não encontrado.' },
+				{ status: 404 },
+			);
+		}
+
+		return NextResponse.json(
+			{ success: true, message: 'Cliente deletado com sucesso!' },
+			{ status: 200 },
+		);
+	} catch (error) {
+		return NextResponse.json(
+			{ success: false, error: `Falha ao deletar cliente: ${error}` },
+			{ status: 500 },
+		);
+	}
+}
