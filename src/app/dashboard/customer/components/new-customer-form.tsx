@@ -21,7 +21,7 @@ export function NewCustomerForm({ userId }: { userId: string }) {
 
 	async function handleRegister(data: CustomerFormData) {
 		try {
-			await instance.post('/api/customer', {
+			const res = await instance.post('/api/customer', {
 				userId: userId,
 				name: data.name,
 				email: data.email,
@@ -29,14 +29,18 @@ export function NewCustomerForm({ userId }: { userId: string }) {
 				address: data.address,
 			});
 
+			if (res.status === 201) {
+				alert('Cliente cadastrado com sucesso!');
+				return;
+			} else if (res.status === 409) {
+				alert('Já existe um cliente cadastrado com esse e-mail.');
+				return;
+			}
+
 			router.refresh();
 			router.replace('/dashboard/customer');
-		} catch (error: any) {
-			if (error.response && error.response.status === 409) {
-				alert('Já existe um cliente cadastrado com esse e-mail.');
-			} else {
-				alert('Falha ao cadastrar cliente. Tente novamente.');
-			}
+		} catch (error) {
+			alert(error);
 		} finally {
 			reset();
 		}

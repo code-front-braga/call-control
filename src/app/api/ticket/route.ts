@@ -66,7 +66,7 @@ export async function POST(request: Request) {
 		return NextResponse.json({ message: 'Chamado registrado com sucesso!' });
 	} catch (error) {
 		return NextResponse.json(
-			{ error: 'Falha ao criar chamado.' },
+			{ error: `Falha ao criar chamado. ${error}` },
 			{ status: 400 },
 		);
 	}

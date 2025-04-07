@@ -21,7 +21,7 @@ export async function GET(request: Request) {
 		return NextResponse.json(customer);
 	} catch (error) {
 		return NextResponse.json(
-			{ error: 'Cliente não encontrado.' },
+			{ error: `Cliente não encontrado. ${error}` },
 			{ status: 400 },
 		);
 	}
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
 		);
 	} catch (error) {
 		return NextResponse.json(
-			{ error: 'Falha ao criar novo cliente.' },
+			{ error: `Falha ao criar novo cliente. ${error}` },
 			{ status: 400 },
 		);
 	}

@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dev Control
 
-## Getting Started
+<div style="text-align: center">
+<img src='/public/print.png' alt='Página Inicial com uma ilustração de um homem usando o computador e uma mulher no celular' />
+</div>
 
-First, run the development server:
+Bem-vindo ao **Dev Control**, uma plataforma de controle de chamados de clientes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🖥️ Demonstração
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔗 [Dev Control](https://currency-swift-chi.vercel.app)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📋 Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Cadastro de Clientes:** Permite cadastrar informações detalhadas dos clientes, como nome, e-mail, telefone e endereço, facilitando o gerenciamento e a comunicação.
+- **Cadastro de Chamados (Tickets):** Permite criar e gerenciar chamados de suporte, atribuir responsáveis, definir prioridades e acompanhar o status de cada chamado.
+- **Listagem de Clientes:** Visualize todos os clientes cadastrados com informações importantes como nome, email, telefone e endereço.
+- **Listagem de Chamados:** Visualize todos os chamados cadastrados, com detalhes como cliente associado, titulo do chamado, descrição e status do chamado.
+- **Edição e Exclusão de Clientes:** Permite editar os dados dos clientes e excluí-los quando necessário.
+- **Edição e Exclusão de Chamados:** Permite editar os dados dos chamados e excluí-los quando necessário.
+- **Filtros e Busca:** Permite filtrar e buscar clientes e chamados por diferentes critérios, facilitando a localização de informações específicas.
 
-## Learn More
+## 🚀 Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js 15 (App Router)](https://nextjs.org/)
+- [Prisma ORM](https://www.prisma.io)
+- [Neon PostgreSQL](https://neon.tech)
+- [AuthJS v5](https://authjs.dev)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como o Projeto foi Construído
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este projeto foi desenvolvido como parte de um curso abrangente na plataforma Udemy, onde aprendi a construir aplicações web completas utilizando Next.js, Prisma ORM e PostgreSQL. O curso me guiou através de todas as etapas do desenvolvimento, desde a configuração do ambiente até a implementação das funcionalidades de controle de chamados e cadastro de clientes. Através deste projeto prático, pude consolidar meus conhecimentos em desenvolvimento full-stack e aplicar as melhores práticas de programação.
 
-## Deploy on Vercel
+## 🛠️ Como Executar o Projeto Localmente
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Siga os passos abaixo para rodar o projeto no seu ambiente local:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone o repositório:
+
+   ```bash
+   git@github.com:code-front-braga/call-control.git
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure as variáveis de ambiente:
+
+Crie um arquivo .env.local na raiz do projeto.
+Adicione as variáveis de ambiente necessárias, como a URL do banco de dados PostgreSQL e as chaves secretas do Auth.js.
+
+4. Abra o navegador e acesse::
+   ```bash
+   http://localhost:3000
+   ```
+
+## ✉️ Contato
+
+Se tiver dúvidas ou sugestões, entre em contato comigo:
+
+- LinkedIn: [Leonardo Braga](https://www.linkedin.com/in/leonardo-braga-8b7856216/)
+
+## 📝 Licença:
+
+Este projeto está licenciado sob a licença MIT.
